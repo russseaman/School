@@ -1,0 +1,24 @@
+\documentclass[options]{article}
+\title{Working with GIT}
+\author{Russ Seaman}
+
+\begin{document}
+	\maketitle
+	\section{First set up}
+	\begin{itemize}
+		\item cd to your working directory (ie: c:/Users/Russ/Documents/GitHub/540Project)
+		\item in git bash type: git clone https://github.com/russseaman/540PROJECT.git
+	\end{itemize}
+	\section{Working on project}
+	\begin{itemize}
+		\item cd to your working directory
+		\item in git bash type: git pull
+		\item in git bash type: git checkout development (development branch will be what we work on, master will be what we turn in)
+		\item in git bash type: git checkout -b 'seaman-codeupdate' (this will help keep branches clean...NEVER WORK ON DEVELOPMENT)
+		\item make your edits to the code, keep in mind...new code needs to be edited inside the folder git is tracking to get pushed with your code edits.
+		\item in git bash type: git add --all
+		\item in git bash type: git commit -m 'your message...what your did..etc' (add a descriptive message to let us know what you did.)
+		\item in git bash type: git push origin whatever-you-named-your-branch
+		
+	\end{itemize}
+\end{document}
