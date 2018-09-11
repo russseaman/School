@@ -1,31 +1,41 @@
-1.) What are the attributes of good software?
-	a. reliablity
-	b. usablity
-	c. maintainability
-	d. scalablity 
+\documentclass[]{article}
+\usepackage[margin=0.5in]{geometry}
 
-2.) What is software engineering?
+
+\begin{document}
+\section{What are the attributes of good software?}
+\begin{enumerate}
+	\item reliablity
+	\item usablity
+	\item maintainability
+ 	\item scalablity \item
+\end{enumerate}
+\section{What is software engineering?}
 	Full stack development, full product development....make cost-effective, dependable software
 
-3.) Why is software engineering important?
+\section{Why is software engineering important?}
 	Saves money in long run
 
+\section{What are the fundamentals sofware engineering} activites?
+\medskip
+	***No matter what project type:
+	\smallskip
+	\begin{enumerate}
+	\item Plan
+	\item Development
+	\item Testing (QA)
+	\item Maintaince/Evolution\item
+	\end{enumerate}
 
-4.) What are the fundamentals sofware engineering activites?
-	***No matter what project type, 
-	a. Plan
-	b. Development
-	c. Testing (QA)
-	d. Maintaince/Evolution
-
-5.) What is the difference between software engineering and computer science?
+\section{What is the difference between software engineering and computer science?}
 	Software engineering looks at whole lifecycle
 
-6.)What is the difference between system engineering and software engineering/
+\section{What is the difference between system engineering and software engineering?}
 	system is setting up infrastructure
 
-7.) What are the costs of software engineering?
-	equipment, location, payroll, changes, 
+\section{What are the costs of software engineering?}
+	equipment, location, payroll, changes,
 
-8.) What are the key challenges facing software engineering?
+\section{What are the key challenges facing software engineering}
 	people use software differntly...deadlines....skillcreep(project growing beyond recognition)
+	\end{document}
