@@ -1,3 +1,5 @@
+import java.util.*;
+
 class lecAct2 {
 
 	public int[] X = new int[]{2,4,6,8,10};
@@ -17,6 +19,7 @@ class lecAct2 {
 	public double[] getZavg(){
 		return prefixAverages(Z);
 	}
+
 
 	public double[] prefixAverages(int[] x) {
 		for (int i = 0; i < a.length; i++){
