@@ -1,4 +1,5 @@
 class lecAct2 {
+
 	public int[] X = new int[]{2,4,6,8,10};
 	public int[] Y = new int[]{1,3,5,7,9};
 	public int[] Z = new int[]{3,9,6,4,1};
@@ -23,10 +24,8 @@ class lecAct2 {
 			for (int j = 0; j <= i; j++){
 				sum += x[j];
 			}
-			a[i] = sum / (i + 1); 
+			a[i] = sum / (i + 1);
 		}
 		return a;
 	}
 }
-
-
