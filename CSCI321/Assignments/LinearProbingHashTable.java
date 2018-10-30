@@ -111,25 +111,27 @@ public class LinearProbingHashTable<Key, Value> {
     }
 
 
-
-
     public static void main(String[] args) {
-        LinearProbingHashTable<String, Integer> st = new LinearProbingHashTable<String, Integer>();
+        LinearProbingHashTable<String, String> st = new LinearProbingHashTable<String, String>();
 
-          st.put("Aa", 1);
-          st.put("BB", 2);
-          st.put("CCC", 3);
+          st.put("www.uscupstate.edu", "USC Upstate");
+          st.put("www.google.com", "Google");
+          st.put("www.yahoo.com", "Yahoo");
 
         //  print keys
-        System.out.println( "The value for Aa is: " + st.get("Aa"));
-        System.out.println("The value for BB is: " + st.get("BB"));
-        System.out.println("The value for CCC is: " + st.get("CCC"));
+        System.out.println("The value for www.uscupstate.edu is: " + st.get("www.uscupstate.edu"));
+        System.out.println("The value for www.google.com is: " + st.get("www.google.com"));
+        System.out.println("The value for www.yahoo.com is: " + st.get("www.yahoo.com"));
+
+        //get key value
+        System.out.println("The key for www.google.com: " + st.get("www.google.com"));
 
         // delete some key-value pair entry and try to print the entries in the table again.
-        st.delete("CCC");
-        System.out.println( "The size of the table is: " + st.size());
-        System.out.println( "The value for Aa is: " + st.get("Aa"));
-        System.out.println("The value for BB is: " + st.get("BB"));
-        System.out.println("The value for CCC is: " + st.get("CCC"));
+        st.delete("www.yahoo.com");
+        System.out.println("The size of the table is: " + st.size());
+        System.out.println("The value for www.uscupstate.edu is: " + st.get("www.uscupstate.edu"));
+        System.out.println("The value for www.google.com is: " + st.get("www.google.com"));
+        System.out.println("The value for www.google.com is: " + st.get("BB"));
+        System.out.println("The value for www.yahoo.com is: " + st.get("www.yahoo.com"));
     }
 }
