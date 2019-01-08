@@ -1,2 +1,2 @@
-# FA2018
-Fall Classes/notes
+# School GITHUB
+Class folders
