@@ -12,7 +12,7 @@ public class ThreeSum {
 
 public static void main(String[] args){
   In in = new In(args[0]);
-  int[] a = in.readAllInts();
+  int[] a = in.readAllInts(-25,-10,-7,-3,2,4,8,10);
   StdOut.println(count(a));
   }
 }
