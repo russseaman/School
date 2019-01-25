@@ -1,3 +1,5 @@
+//brute force method....need to update to a faster method
+
 public class ThreeSum {
   public static int count(int[] a){
     int N = a.length;
