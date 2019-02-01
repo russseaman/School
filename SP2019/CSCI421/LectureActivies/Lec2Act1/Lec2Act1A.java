@@ -35,7 +35,7 @@ public class Lec2Act1A{
     //   System.out.println(arrList.get(count2));
     //   count2++;
     // }
-    System.out.println(arrList);
   }
+  System.out.println(arrList);
   }
 }
