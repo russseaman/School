@@ -22,7 +22,7 @@ class InsertionSort{
     }
 
     public static void main(String args[]){
-        int arr[] = {};
+        int arr[] = {4,5,7,1,2,10,13};
 
         InsertionSort ob = new InsertionSort();
         ob.sort(arr);
