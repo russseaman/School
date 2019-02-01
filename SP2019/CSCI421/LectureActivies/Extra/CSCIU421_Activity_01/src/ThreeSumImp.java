@@ -1,4 +1,4 @@
-public class ThreeSum {
+public class ThreeSumImp {
 
     // Assumes array being passed in is already sorted
     public void count(int[] arr) {
