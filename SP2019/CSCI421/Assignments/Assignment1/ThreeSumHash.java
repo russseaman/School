@@ -12,6 +12,6 @@ public class ThreeSumHash {
             System.out.println("Triplet Found: " + a[i] + " " + a[j] + " " + a[k] );
             count++;
           }
-  return count;
+  // return count;
   }
 }

@@ -1,7 +1,7 @@
 import java.util.Random;
 
 //Driver class
-public class Act1{
+public class Assign1{
   public static void main(String[] args) {
     Random r = new Random();
     int[] integers = new int[500];
@@ -13,8 +13,6 @@ public class Act1{
     ThreeSumHash tsh = new ThreeSumHash();
     ThreeSumImp tsi = new ThreeSumImp();
     BinSearch bs = new BinSearch();
-    // tsb.count(integers);
-    // tsh.count(integers);
 
     long startTime = System.currentTimeMillis();
     // tsb.count(integers);
