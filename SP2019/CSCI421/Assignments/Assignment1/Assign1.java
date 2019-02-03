@@ -4,23 +4,42 @@ import java.util.Random;
 public class Assign1{
   public static void main(String[] args) {
     Random r = new Random();
-    int[] integers = new int[500];
+    int[] integers = new int[250];
     for (int i = 0; i < integers.length; i++) {
       integers[i] = r.nextInt();
     }
+
+    long startTime, endTime, elapsed;
+
+    System.out.println("Array Size of random numbers: " + integers.length);
 
     ThreeSumBrute tsb = new ThreeSumBrute();
     ThreeSumHash tsh = new ThreeSumHash();
     ThreeSumImp tsi = new ThreeSumImp();
     BinSearch bs = new BinSearch();
 
-    long startTime = System.currentTimeMillis();
-    // tsb.count(integers);
+    startTime = System.currentTimeMillis();
+    tsb.count(integers);
+    endTime = System.currentTimeMillis();
+    elapsed = endTime - startTime;
+    System.out.println("Time using Brute Force Method: " + elapsed);
+
+    startTime = System.currentTimeMillis();
     tsh.count(integers);
-    // tsi.count(integers);
-    // bs.binarySearch(integers);
-    long endTime = System.currentTimeMillis();
-    long elapsed = endTime - startTime;
-    System.out.println(elapsed);
+    endTime = System.currentTimeMillis();
+    elapsed = endTime - startTime;
+    System.out.println("Time using Hash method: " + elapsed);
+
+    startTime = System.currentTimeMillis();
+    tsi.count(integers);
+    endTime = System.currentTimeMillis();
+    elapsed = endTime - startTime;
+    System.out.println("Time using Three sum Improved: " + elapsed);
+
+    startTime = System.currentTimeMillis();
+    bs.binaryInsSort(integers);
+    endTime = System.currentTimeMillis();
+    elapsed = endTime - startTime;
+    System.out.println("Time using Binary Insertion Sort: " + elapsed);
   }
 }

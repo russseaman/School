@@ -11,7 +11,7 @@ public class ThreeSumImp{
             end   = arr.length - 1;
             while (start < end) {
                 if (arr[i] + arr[start] + arr[end] == 0) {
-                    System.out.println("Triplet found: " + arr[i] + ", " + arr[start] + ", " + arr[end]);
+                    // System.out.println("Triplet found: " + arr[i] + ", " + arr[start] + ", " + arr[end]);
                     counter++;
                     break;
                 }
@@ -21,6 +21,5 @@ public class ThreeSumImp{
                     start++;
             }
         }
-        // System.out.println("Total triplets: " + counter);
     }
 }
