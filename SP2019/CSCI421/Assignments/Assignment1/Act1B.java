@@ -30,5 +30,5 @@ public class Lecture02Activity01 {
             a[j] = v;
         }
         printArray(a);
-    }
+    } 
 }
