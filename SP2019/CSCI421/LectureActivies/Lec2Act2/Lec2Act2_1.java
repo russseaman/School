@@ -29,7 +29,7 @@ public class Lec2Act2_1 {
     mergeSort(aux, a, mid + 1, hi);
     if (!less(a[mid + 1], a[mid]))
       return;
-    merge(a, aux, lo, mid, hi);
+    merge(aux, a, lo, mid, hi);
   }
 
   public static void insSort(Comparable[] a) {
@@ -44,7 +44,7 @@ public class Lec2Act2_1 {
 
   public static void mergeSort(Comparable[] a) {
     Comparable[] aux = new Comparable[a.length];
-    mergeSort(a, aux, 0, a.length - 1);
+    mergeSort(aux, a, 0, a.length - 1);
   }
 
   private static void exch(Comparable[] a, int i, int j) {
@@ -57,9 +57,15 @@ public class Lec2Act2_1 {
     return v.compareTo(w) < 0;
   }
 
+  // private static int genRandomNumber(Comparable range, int min, int max) {
+  //   Comparable arr[] = new Comparable[range];
+  //   Random r = new Random();
+  //   return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
+  // }
+
   public static void main(String[] args) {
     Random rand = new Random();
-    Comparable arr[] = new Comparable[1000];
+    Comparable arr[] = new Comparable[8000];
     for (int i = 0; i < arr.length; i++)
       arr[i] = rand.nextInt();
 
