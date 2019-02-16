@@ -57,16 +57,11 @@ public class Lec2Act2_1 {
     return v.compareTo(w) < 0;
   }
 
-  // private static int genRandomNumber(Comparable range, int min, int max) {
-  //   Comparable arr[] = new Comparable[range];
-  //   Random r = new Random();
-  //   return r.ints(min, (max + 1)).limit(1).findFirst().getAsInt();
-  // }
-
   public static void main(String[] args) {
+    int arrSize;
     Random rand = new Random();
-    Comparable arr[] = new Comparable[8000];
-    for (int i = 0; i < arr.length; i++)
+    this.arrSize = 8000;
+    for (int i = 0; i < arrSize; i++)
       arr[i] = rand.nextInt();
 
     long startTime, endTime, elapsed;
