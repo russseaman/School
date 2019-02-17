@@ -1,0 +1,76 @@
+Lexical Analyzer Implementation
+
+Use Java to write a simple Lexical Analyzer.
+
+Input: a source code file, (.txt file). Ask user to input the file name.
+
+Output: printing all recognized tokens
+
+The source code accepted tokens include
+
+Keywords:  int   double  String  (case sensitive)
+
+operators:  =   (  )  +  -  *  /  ,  ;
+
+identifier:  letter(letter|digit)*
+
+int constant
+
+double constant
+
+string constant: string constant is enclosed in a pair of "", such as "abc"
+
+anything not recognized is detected as errors
+
+
+
+If the input file has the following content:
+
+int a, b=10;
+
+a =bc*10-&(3.2+"abc";
+
+The output should be
+
+Line1:1  keyword: int
+
+Line1: 5 identifier: a
+
+Line1:6 operator: ,
+
+Line1: 7 identifier: b
+
+Line1: 8 operator: =
+
+Line1: 9 int constant: 10
+
+Line1: 11 operator: ;
+
+Line2: 1 identifier: a
+
+Line2: 3 operator: =
+
+Line2: 4 identifier: bc
+
+Line2: 6 operator: *
+
+Line2: 7 int constant: 10
+
+Line2: 9 operator: -
+
+Line2: 10 error: & not recognized
+
+Line2: 11 operator: (
+
+Line2: 12 double constant: 3.2
+
+Line2: 15 operator: +
+
+Line2: 16 string constant: "abc"
+
+Line2: 21 operator: ;
+
+
+
+
+
