@@ -7,95 +7,113 @@ import java.util.Spliterator;
 import java.util.stream.*;
 import java.nio.CharBuffer;
 import java.util.stream.*;
+import java.lang.*;
 
-@SuppressWarnings("rawtypes")
-public class testbed {
-
-  public static void stringParse(String filename) throws FileNotFoundException {
-    List<String> keywords = Arrays.asList("int", "double", "String");
-
-    List<Character> charList = new ArrayList<Character>();
+public class Assign2 {
+  public static void stringParse(String filename) throws IOException {
+    StringBuilder constList = new StringBuilder();
     PrintStream ps = new PrintStream(System.out);
     Scanner s = null;
-    char ch;
+    Character chInd;
+    String chDecs = "";
+    StringBuilder numList = new StringBuilder();
     try {
-      s = new Scanner(new BufferedReader(new FileReader(filename)));
-      while (s.hasNext()) {
-        String str = s.next();
-        for (int i = 0; i <= str.length() - 1; i++) {
-          charList.add(str.charAt(i));
-          ps.println(charList);
-        }
-
-        // operatorCheck(charList);
+      BufferedReader bufReader = new BufferedReader(new FileReader(filename));
+      ArrayList<String> listOfLines = new ArrayList<>();
+      String line = bufReader.readLine();
+      while (line != null) {
+        listOfLines.add(line);
+        line = bufReader.readLine();
       }
-      // ps.println(charList);
-      for (int i = 0; i < charList.size(); i++) {
-        ch = charList.get(i);
-        if (Character.isLetter(ch)) {
-          ps.println(ch + "\tLetter!");
-        } else if (Character.isDigit(ch)) {
-          ps.println(ch + "\tDigit!");
-        } else {
-          switch (ch) {
-          case '=':
-            ps.println("operator: " + ch);
+      bufReader.close();
+      for (int ls = 0; ls < listOfLines.size(); ls++) {
+        for (int index = 0; index < listOfLines.get(ls).length(); index++) {
+          chInd = listOfLines.get(ls).charAt(index);
+          if (Character.isLetter(chInd)) {
+            chDecs = "Letter";
+          } else if (Character.isDigit(chInd)) {
+            chDecs = "Number";
+          } else {
+            chDecs = "Other";
+          }
+          switch (chDecs) {
+          case "Letter":
+            constList.append(chInd);
+            if (!Character.isLetter(listOfLines.get(ls).charAt(index + 1))) {
+              if (constList.toString().contains("int") || constList.toString().contains("String")) {
+                ps.println("Line" + (ls + 1) + ": " + ((index + 2) - constList.length()) + " keyword: " + constList);
+              } else {
+                if (!Character.isLetter(listOfLines.get(ls).charAt(index + 1))) {
+                  chDecs = "Other";
+                  ps.println("Line" + (ls) + ": " + (index) + " identifier: " + constList);
+                }
+              }
+            }
             break;
-          case '(':
-            ps.println("operator: " + ch);
+          case "Number":
+            numList.append(chInd);
+            constList.setLength(0);
+            if (!Character.isDigit(listOfLines.get(ls).charAt(index + 1))) {
+              ps.println("Line" + (ls + 1) + ": " + ((index + 1) - numList.length()) + " int constant: " + numList);
+            }
             break;
-          case ')':
-            ps.println("operator: " + ch);
-            break;
-          case '+':
-            ps.println("operator: " + ch);
-            break;
-          case '-':
-            ps.println("operator: " + ch);
-            break;
-          case '*':
-            ps.println("operator: " + ch);
-            break;
-          case '/':
-            ps.println("operator: " + ch);
-            break;
-          case ',':
-            ps.println("operator: " + ch);
-            break;
-          case ';':
-            ps.println("operator: " + ch);
-            break;
-          default:
-            ps.println("NOT recognized" + ch);
+          case "Other":
+            numList.setLength(0);
+            constList.setLength(0);
+            switch (chInd) {
+            case '=':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case '(':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case ')':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case '+':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case '-':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case '*':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case '/':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case ',':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case ';':
+              ps.println("Line" + (ls + 1) + ": " + (index + 1) + " operator: " + chInd);
+              break;
+            case '"':
+              if (Character.isLetter(listOfLines.get(ls).charAt(index) + 1)) {
+                chDecs = "Letter";
+              }
+              ps.println("Line" + (ls) + ": " + (index) + " string const: " + "\"" + constList);
+              break;
+            }
           }
         }
+        constList.setLength(0);
+        numList.setLength(0);
       }
+    } finally
 
-    } finally {
+    {
       if (s != null) {
         s.close();
       }
     }
   }
 
-  public static void charDit() {
-
-  }
-
-  // public static void operatorCheck(List listCheck) {
-  //   List operators = Arrays.asList("=", "(", ")", "+", "-", "*", "/", ",", ";");
-  //
-  //   for (int i = 0; i <= charList.size(); i++) {
-  //     if (charList.get(i) == "=") {
-  //       return EQUAL;
-  //     }
-  //   }
-  // }
-
   public static void main(String[] args) throws IOException {
     Scanner sc = new Scanner(System.in);
 
     String filename = "input.txt";
+    // System.out.println("Please make sure the file you are trying to analyze is in the same dir");
     // System.out.println("Please enter a filename: ");
     // String filename = sc.next();
     stringParse(filename);
