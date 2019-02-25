@@ -1,8 +1,7 @@
-import java.util.*;
 import java.io.*;
-import java.lang.*;
-import java.util.Random;
+import java.util.*;
 
+@SuppressWarnings("rawtypes")
 public class Lec2Act3 {
 
   public static int partition(Comparable[] a, int lo, int hi) {
@@ -23,7 +22,7 @@ public class Lec2Act3 {
   }
 
   public static void sort(Comparable[] a) {
-    StdRandom.Shuffle(a);
+    // StdRandom.Shuffle(a);
     sort(a, 0, a.length - 1);
   }
 
@@ -45,18 +44,7 @@ public class Lec2Act3 {
     a[j] = swap;
   }
 
-  public static int[] getArray() {
-    int size = 10;
-    int[] array = new int[size];
-    int item = 0;
-    for (int i = 0; i < size; i++) {
-      item = (int) (Math.random() * 100);
-      array[i] = item;
-    }
-    return array;
-  }
-
-  static void printArray(int arr[]) {
+  static void printArray(Comparable arr[]) {
     int n = arr.length;
     for (int i = 0; i < n; ++i)
       System.out.print(arr[i] + " ");
@@ -64,9 +52,15 @@ public class Lec2Act3 {
   }
 
   public static void main(String[] args) {
-    int arr[] = { 10, 7, 8, 9, 1, 5 };
-    int n = arr.length;
+    int size = 1000;
+    Comparable[] arr = new Comparable[size];
+    int item = 0;
+    for (int i = 0; i < size; i++) {
+      item = (int) (Math.random() * 100);
+      arr[i] = item;
+    }
 
+    sort(arr);
     System.out.println("sorted array");
     printArray(arr);
 
