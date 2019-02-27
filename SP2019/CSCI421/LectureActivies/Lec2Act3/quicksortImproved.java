@@ -1,42 +1,44 @@
-public class quicksortImproved {
-  int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
-    int i = (low - 1);
-    for (int j = low; j < high; j++) {
-      if (arr[j] <= pivot) {
-        i++;
+import java.util.Random;
 
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+public class quicksortImproved {
+  Random rand = new Random();
+
+  int partition(int a[], int lo, int hi) {
+    int pivot = a[hi];
+    int i = lo - 1;
+    for (int j = lo; j < hi; j++) {
+      if (less(a[j], pivot)) {
+        i++;
+        exch(a, i, j);
       }
     }
-
-    int temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
-
-    return i + 1;
+    i++;
+    exch(a, i, hi);
+    return i;
   }
 
-  void sort(int arr[], int low, int high) {
-    if (low < high) {
-      int pi = partition(arr, low, high);
-
-      sort(arr, low, pi - 1);
-      sort(arr, pi + 1, high);
-    }
+  void sort(int[] arr, int lo, int hi) {
+    if (hi <= lo)
+      return;
+    int randPiv = partition(arr,lo + rand.nextInt(hi - lo + 1),hi);
+    sort(arr, lo, randPiv - 1);
+    sort(arr, randPiv + 1, hi);
   }
 
   public void sort(int[] a) {
-    sort(a, 0, a.length - 1);
+    int lo = 0;
+    int hi = a.length - 1;
+    sort(a, lo, hi);
   }
 
-  public void printArray(int arr[]) {
-    int n = arr.length;
-    for (int i = 0; i < n; ++i)
-      System.out.print(arr[i] + " ");
-    System.out.println();
+  private static void exch(int[] a, int i, int j) {
+    int swap = a[i];
+    a[i] = a[j];
+    a[j] = swap;
+  }
+
+  private static boolean less(Comparable v, Comparable w) {
+    return v.compareTo(w) < 0;
   }
 
 }

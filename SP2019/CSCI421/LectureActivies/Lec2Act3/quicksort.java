@@ -1,42 +1,46 @@
+import java.util.Random;
+
 public class quicksort {
-  int partition(int arr[], int low, int high) {
-    int pivot = arr[high];
-    int i = (low - 1);
-    for (int j = low; j < high; j++) {
-      if (arr[j] <= pivot) {
-        i++;
+  int partition(int a[], int lo, int hi) {
+    int i = lo, j = hi + 1;
+    while (true) {
+      while (less(a[++i], a[lo]))
+        if (i == hi)
+          break;
 
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-      }
+      while (less(a[lo], a[--j]))
+        if (j == lo)
+          break;
+
+      if (i >= j)
+        break;
+      exch(a, i, j);
     }
 
-    int temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
-
-    return i + 1;
+    exch(a, lo, j);
+    return j;
   }
 
-  void sort(int arr[], int low, int high) {
-    if (low < high) {
-      int pi = partition(arr, low, high);
-
-      sort(arr, low, pi - 1);
-      sort(arr, pi + 1, high);
-    }
+  void sort(int a[], int lo, int hi) {
+    if (hi <= lo)
+      return;
+    int j = partition(a, lo, hi);
+    sort(a, lo, j - 1);
+    sort(a, j + 1, hi);
   }
 
-  public void sort(int[] a) {
+  public void sort(int a[]) {
     sort(a, 0, a.length - 1);
   }
 
-  public void printArray(int arr[]) {
-    int n = arr.length;
-    for (int i = 0; i < n; ++i)
-      System.out.print(arr[i] + " ");
-    System.out.println();
+  private static void exch(int[] a, int i, int j) {
+    int swap = a[i];
+    a[i] = a[j];
+    a[j] = swap;
+  }
+
+  private static boolean less(Comparable v, Comparable w) {
+    return v.compareTo(w) < 0;
   }
 
 }
