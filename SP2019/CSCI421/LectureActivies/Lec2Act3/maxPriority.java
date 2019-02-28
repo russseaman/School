@@ -134,31 +134,23 @@ public class Lec2Act3_2<Key> implements Iterable<Key> {
     public Iterator<Key> iterator() {
         return (Iterator<Key>) new HeapIterator();
     }
-
     private class HeapIterator implements Iterator<int[]> {
 
         private Lec2Act3_2<int[]> copy;
 
         public HeapIterator() {
-            if (comparator == null)
-                copy = new Lec2Act3_2<>(size());
+            if (comparator == null) copy = new Lec2Act3_2<>(size());
             else {
                 copy = (Lec2Act3_2<int[]>) new Lec2Act3_2<Key>(size(), comparator);
             }
             IntStream.rangeClosed(1, n).forEach(i -> copy.insert((int[]) pq[i]));
         }
 
-        public boolean hasNext() {
-            return !copy.isEmpty();
-        }
-
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
+        public boolean hasNext()  { return !copy.isEmpty();                     }
+        public void remove()      { throw new UnsupportedOperationException();  }
 
         public int[] next() {
-            if (!hasNext())
-                throw new NoSuchElementException();
+            if (!hasNext()) throw new NoSuchElementException();
             return copy.delMax();
         }
     }
@@ -166,40 +158,40 @@ public class Lec2Act3_2<Key> implements Iterable<Key> {
     public static void main(String[] args) {
         Lec2Act3_2<Integer> pq = new Lec2Act3_2<Integer>();
 
-        int itCount = 4; // Iteration count...ie (4 = 8000), since it will be 1000 * 2, 2000*2
+        int itCount = 4; //Iteration count...ie (4 = 8000), since it will be 1000 * 2, 2000*2
 
         long startTime, endTime, elapsed;
         int N = 1000;
         long totalTime = 0;
 
-        while (itCount > 0) {
+        while (itCount> 0){
             startTime = System.currentTimeMillis();
 
             int i = 0;
 
             Random rand = new Random();
 
-            while (i < N) {
+            while ( i < N ){
                 int item = rand.nextInt(100);
                 pq.insert(item);
                 i++;
             }
             i = 0;
 
-            while (i < N / 2) {
+            while (i < N/2){
                 pq.delMax();
                 i++;
             }
 
             endTime = System.currentTimeMillis();
-            elapsed = endTime - startTime;
+            elapsed =  endTime - startTime;
             totalTime = totalTime + elapsed;
-            System.out.println("\nArray Size:  " + N);
-            System.out.println("Time = " + elapsed + " Milliseconds");
-            N = N * 2;
+            System.out.println("N\t="+N);
+            System.out.println("Time \t = "+elapsed+" Milliseconds");
+            N = N*2;
             itCount--;
         }
         System.out.println("===============================================");
-        System.out.println("Average TIme \t= " + totalTime / 4 + " Milliseconds");
+        System.out.println("Average TIme \t=" + totalTime/4 +" Milliseconds");
     }
 }
