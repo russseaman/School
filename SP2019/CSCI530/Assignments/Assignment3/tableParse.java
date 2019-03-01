@@ -7,12 +7,12 @@ public class tableParse {
     private String action4;
     private String action5;
     private String action6;
-    private int gotoE;
-    private int gotoT;
-    private int gotoF;
+    private String gotoE;
+    private String gotoT;
+    private String gotoF;
 
     public tableParse(int state, String action1, String action2, String action3, String action4, String action5,
-                      String action6, int gotoE, int gotoT, int gotoF) {
+            String action6,String gotoE, String gotoT, String gotoF) {
         super();
         this.state = state;
         this.action1 = action1;
@@ -26,7 +26,10 @@ public class tableParse {
         this.gotoF = gotoF;
     }
 
-    public int getState() {
+    public tableParse(String string) {
+	}
+
+	public int getState() {
         return state;
     }
 
@@ -82,27 +85,27 @@ public class tableParse {
         this.action6 = action6;
     }
 
-    public int setGotoE() {
+    public String getGotoE() {
         return gotoE;
     }
 
-    public void getGotoE(int gotoE) {
+    public void setGotoE(String gotoE) {
         this.gotoE = gotoE;
     }
 
-    public int setGotoT() {
+    public String getGotoT() {
         return gotoT;
     }
 
-    public void getGotoT(int gotoT) {
+    public void setGotoT(String gotoT) {
         this.gotoT = gotoT;
     }
 
-    public int setGotoF() {
+    public String getGotoF() {
         return gotoF;
     }
 
-    public void getGotoF(int gotoF) {
+    public void setGotoF(String gotoF) {
         this.gotoF = gotoF;
     }
 

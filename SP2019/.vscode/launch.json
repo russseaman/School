@@ -6,15 +6,16 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Debug (Launch) - Current File",
+            "name": "CodeLens (Launch) - Assign3",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "Assign3",
+            "projectName": "SP2019_1a5e6d98"
         },
         {
             "type": "java",
-            "name": "Debug (Launch)-Lec2Act3_1",
+            "name": "Debug (Launch) - Current File",
             "request": "launch",
-            "mainClass": "Lec2Act3_1"
+            "mainClass": "${file}"
         }
     ]
 }

@@ -1,9 +1,29 @@
-// we can use stack class in java...push/pop
-// anything other than the action go to ie id + - is an error!
-// due 3/3
+import java.io.IOException;
+import java.util.List;
+import java.io.FileNotFoundException;
+
 public class Assign3 {
-  public static void main(String[] args) {
-    System.out.println("Hello World!");
-    System.out.println("This is a test");
-  }
+    public static void main(String[] args) throws IOException, InterruptedException {
+        // System.out.println("Hello, World!");
+
+        // TODO: Read csv for parse table(State table, GOTO defs)
+        csvParseReader cpr = new csvParseReader();
+        cpr.csvParseRead();
+        cpr.printTable();
+
+        // TODO: Read file from grammer rules
+        csvGrammarReader cgr = new csvGrammarReader();
+        cgr.csvGrammarRead();
+        cgr.printTable();
+
+        // TODO: Scanner to read user input
+
+        // ? Stream scanner
+        // ? IF stream, use functional approach to decision map for input
+
+        // TODO: From stream and decision map.....output either accept or error
+
+        // TODO: Output stack trace for debugging!
+
+    }
 }
