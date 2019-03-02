@@ -7,7 +7,7 @@ import java.util.List;
 public class csvGrammarReader {
     public static final String ANSI_YELLOW_BACKGROUND = "\u001B[43m";
     BufferedReader br = null;
-    String csvFile = "CSCI530\\Assignments\\Assignment3\\grammar.csv";
+    String csvFile = "grammar.csv";
 
     public List<grammarParse> csvGrammarRead() {
         try {
@@ -24,6 +24,7 @@ public class csvGrammarReader {
                     csvGramList.add(gp);
                 }
             }
+            return csvGramList;
         } catch (Exception ee) {
             ee.printStackTrace();
         } finally {
@@ -39,11 +40,10 @@ public class csvGrammarReader {
 
     public void printTable() throws InterruptedException {
         List<grammarParse> csvGramList = csvGrammarRead();
-        for (int i = 0; i < csvGramList.size(); i++) {
+        System.out.println("Grammar Rules:");
+        for (int i = 0; i < csvGramList.size(); i++)
             System.out.println(csvGramList.get(i).getG1() + csvGramList.get(i).getG2() + csvGramList.get(i).getG3()
-                    + csvGramList.get(i).getG4());
-
-        }
+                    + csvGramList.get(i).getG4() + csvGramList.get(i).getG5());
     }
 
 }

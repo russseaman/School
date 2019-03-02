@@ -1,29 +1,34 @@
 import java.io.IOException;
-import java.util.List;
-import java.io.FileNotFoundException;
 
 public class Assign3 {
     public static void main(String[] args) throws IOException, InterruptedException {
-        // System.out.println("Hello, World!");
+
+        // TODO: Make a class to build csv's and insert int to Dirs
 
         // TODO: Read csv for parse table(State table, GOTO defs)
+        // ! DONE
         csvParseReader cpr = new csvParseReader();
         cpr.csvParseRead();
-        cpr.printTable();
 
         // TODO: Read file from grammer rules
+        // ! DONE
         csvGrammarReader cgr = new csvGrammarReader();
         cgr.csvGrammarRead();
-        cgr.printTable();
 
         // TODO: Scanner to read user input
+        // ! DONE
+        userScanner us = new userScanner();
+        us.userScan();
 
-        // ? Stream scanner
-        // ? IF stream, use functional approach to decision map for input
+        // TODO: Check if "GO" conditions are met....otherwise return ERROR.
+        // parseDecision
 
         // TODO: From stream and decision map.....output either accept or error
 
         // TODO: Output stack trace for debugging!
-
+        
+        // System.out.println(cpr.returnList().get(0).getAction1());
+        // cpr.printTable();
+        // cgr.printTable();
     }
 }

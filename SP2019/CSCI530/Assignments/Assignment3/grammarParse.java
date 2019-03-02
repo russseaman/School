@@ -14,6 +14,9 @@ public class grammarParse {
         this.g5 = g5;
     }
 
+    public grammarParse(String string) {
+    }
+
     public String getG1() {
         return g1;
     }

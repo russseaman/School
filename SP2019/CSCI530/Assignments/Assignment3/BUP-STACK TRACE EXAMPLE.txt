@@ -1,0 +1,20 @@
+Stack			Input String			Command
+0			    (id + id) * id$			s4
+0(4			    id + id) * id$			s5
+0(4id5			+ id) * id$ 			r6	F -> id
+0(4F3			+ id) * id$	    		r4	T -> F
+0(4T2			+ id) * id$	    		r2	E -> T
+0(4E8+6			id) * id$	    		s6
+0(4E8+6id		) * id$		    		s5
+0(4E8+6id5		) * id$	    			r6
+0(4E8+6F3		) * id$		    		r4
+0(4E8+6T9		* id$				    r1	E -> E + T (POP!) -> 0(4.....E8+6T9
+0(4E8			* id$			    	s11	
+0(4E8)11		* id$	    			r5	F -> (E) (POP!) -> (4E8)11
+0F3			    id$ 		    		r4	F -> T
+0T2		    	$		        		s7
+0T2*7			$			        	s5
+0T2*7id5		$	        			r6	F -> id
+0T2*7F10		$	        			r3	T -> T * F
+0T2		    	$			          	r2	E -> T
+0E1		    	$       				****acc****
