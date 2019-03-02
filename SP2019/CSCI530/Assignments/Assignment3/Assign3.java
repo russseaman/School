@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Assign3 {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -18,7 +20,7 @@ public class Assign3 {
         // TODO: Scanner to read user input
         // ! DONE
         userScanner us = new userScanner();
-        us.userScan();
+        us.splitString(); // split string calls and initiates the scanner and build an Array out of the string
 
         // TODO: Check if "GO" conditions are met....otherwise return ERROR.
         // parseDecision
@@ -26,7 +28,7 @@ public class Assign3 {
         // TODO: From stream and decision map.....output either accept or error
 
         // TODO: Output stack trace for debugging!
-        
+
         // System.out.println(cpr.returnList().get(0).getAction1());
         // cpr.printTable();
         // cgr.printTable();
