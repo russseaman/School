@@ -10,27 +10,33 @@ public class userScanner {
         return userIn;
     }
 
-    public String splitString() {
-        String userIn = "(id + id) * id$";
+    public ListIterator<String> splitString() {
         // String userIn = userScan();
+        String userIn = "(id + id) * id$";
         Character chIndex;
-
-        Character[] charObjectArray = userIn.chars().mapToObj(c -> (char) c).toArray(Character[]::new);
-        // System.out.println(charObjectArray)÷
-        ArrayList<Character> pStr = new ArrayList<Character>();
-        System.out.println(charObjectArray.toString());
-        // for (int i = 0; i < userIn.length(); i++) {
-        // chIndex = userIn.charAt(i);
-        // if (Character.isLetter(chIndex) && Character.isLetter(chIndex + 1)) {
-        // pStr.add(chIndex + "" + userIn.charAt(i + 1));
-        // i++;
-        // } else if (Character.isWhitespace(chIndex)) {
-        // } else {
-        // pStr.add(chIndex + "");
-        // }
-        // }
-        return charObjectArray.toString();
-        // return ;
-
+        ArrayList<String> pStr = new ArrayList<String>();
+        for (int i = 0; i < userIn.length(); i++) {
+            chIndex = userIn.charAt(i);
+            if (Character.isLetter(chIndex) && Character.isLetter(chIndex + 1)) {
+                pStr.add(chIndex + "" + userIn.charAt(i + 1));
+                i++;
+            } else if (Character.isWhitespace(chIndex)) {
+            } else {
+                pStr.add(chIndex + "");
+            }
+        }
+        return pStr.listIterator();
     }
+
+    public String goCheck(){
+        ListIterator<String> userString = splitString();
+
+        // System.out.println(String.;
+        // // for (int i = 0; i< userString.length(); i++){
+        //     System.out.println(userString.charAt(i));
+        // }
+
+        return null;
+    }
+
 }
