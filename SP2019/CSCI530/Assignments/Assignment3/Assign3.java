@@ -3,8 +3,6 @@ import java.io.IOException;
 public class Assign3 {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-        // TODO: Make a class to build csv's and insert int to Dirs
-
         // TODO: Read csv for parse table(State table, GOTO defs)
         // ! DONE
         csvParseReader cpr = new csvParseReader();
@@ -12,8 +10,8 @@ public class Assign3 {
 
         // TODO: Read file from grammer rules
         // ! DONE
-        csvGrammarReader cgr = new csvGrammarReader();
-        cgr.csvGrammarRead();
+        // csvGrammarReader cgr = new csvGrammarReader();
+        // cgr.csvGrammarRead();
 
         // TODO: Scanner to read user input
         // ! DONE
@@ -22,8 +20,10 @@ public class Assign3 {
         // will check if "go conditions are met, return string if pass, if fail, will give reason why"
         us.goCheck();
 
+
+
         // TODO: Output stack trace for debugging!
 
-        
+
     }
 }

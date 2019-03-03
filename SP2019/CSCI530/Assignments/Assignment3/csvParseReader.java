@@ -20,9 +20,8 @@ public class csvParseReader {
             while ((line = br.readLine()) != null) {
                 String[] rowValues = line.split(",", -1);
                 if (rowValues.length > 0) {
-                    tableParse tp = new tableParse(Integer.parseInt(rowValues[0]), rowValues[1], rowValues[2],
-                            rowValues[3], rowValues[4], rowValues[5], rowValues[6], rowValues[7], rowValues[8],
-                            rowValues[9]);
+                    tableParse tp = new tableParse(rowValues[0], rowValues[1], rowValues[2], rowValues[3], rowValues[4],
+                            rowValues[5], rowValues[6], rowValues[7], rowValues[8], rowValues[9]);
                     csvList.add(tp);
                 }
             }
@@ -42,7 +41,7 @@ public class csvParseReader {
         return null;
     }
 
-    public List<tableParse> returnList(){
+    public List<tableParse> returnList() {
         List<tableParse> csvList = csvParseRead();
         return csvList;
     }

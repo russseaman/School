@@ -1,6 +1,6 @@
 public class tableParse {
 
-    private int state;
+    private String state;
     private String action1;
     private String action2;
     private String action3;
@@ -11,8 +11,8 @@ public class tableParse {
     private String gotoT;
     private String gotoF;
 
-    public tableParse(int state, String action1, String action2, String action3, String action4, String action5,
-            String action6,String gotoE, String gotoT, String gotoF) {
+    public tableParse(String state, String action1, String action2, String action3, String action4, String action5,
+            String action6, String gotoE, String gotoT, String gotoF) {
         super();
         this.state = state;
         this.action1 = action1;
@@ -27,13 +27,13 @@ public class tableParse {
     }
 
     public tableParse(String string) {
-	}
+    }
 
-	public int getState() {
+    public String getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(String state) {
         this.state = state;
     }
 

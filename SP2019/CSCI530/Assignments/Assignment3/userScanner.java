@@ -10,7 +10,7 @@ public class userScanner {
         return userIn;
     }
 
-    public ArrayList<String> splitString() {
+    public static ArrayList<String> splitString() {
         // String userIn = userScan();
         String userIn = "(id + id) * id + id$";
         Character chIndex;
@@ -28,12 +28,15 @@ public class userScanner {
         return pStr;
     }
 
-    public String goCheck() {
+    public static ArrayList<String> goCheck() {
         ArrayList<String> pStr = splitString();
+                stringStack ss = new stringStack();
 
         pStr.spliterator();
         if ((pStr.get(0).contains("(") || pStr.get(0).contains("id")) && pStr.get(pStr.size() - 1).contains("$")) {
             System.out.println("PASS");
+            ss.buildStack(pStr);
+            return pStr;
         } else {
             System.out.println("FAIL");
             if ((!pStr.get(0).contains("(") || !pStr.get(0).contains("id"))
@@ -42,8 +45,8 @@ public class userScanner {
             } else if (!pStr.get(pStr.size() - 1).contains("$")) {
                 System.out.println("Your expression must end with $");
             }
+            return null;
         }
-        return null;
     }
 
 }
