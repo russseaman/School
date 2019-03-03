@@ -10,9 +10,9 @@ public class userScanner {
         return userIn;
     }
 
-    public ListIterator<String> splitString() {
+    public ArrayList<String> splitString() {
         // String userIn = userScan();
-        String userIn = "(id + id) * id$";
+        String userIn = "(id + id) * id + id$";
         Character chIndex;
         ArrayList<String> pStr = new ArrayList<String>();
         for (int i = 0; i < userIn.length(); i++) {
@@ -25,17 +25,24 @@ public class userScanner {
                 pStr.add(chIndex + "");
             }
         }
-        return pStr.listIterator();
+        return pStr;
     }
 
-    public String goCheck(){
-        ListIterator<String> userString = splitString();
+    public String goCheck() {
+        ArrayList<String> pStr = splitString();
 
-        // System.out.println(String.;
-        // // for (int i = 0; i< userString.length(); i++){
-        //     System.out.println(userString.charAt(i));
-        // }
-
+        pStr.spliterator();
+        if ((pStr.get(0).contains("(") || pStr.get(0).contains("id")) && pStr.get(pStr.size() - 1).contains("$")) {
+            System.out.println("PASS");
+        } else {
+            System.out.println("FAIL");
+            if ((!pStr.get(0).contains("(") || !pStr.get(0).contains("id"))
+                    && pStr.get(pStr.size() - 1).contains("$")) {
+                System.out.println("Your expression must start with either ( -OR- id");
+            } else if (!pStr.get(pStr.size() - 1).contains("$")) {
+                System.out.println("Your expression must end with $");
+            }
+        }
         return null;
     }
 
