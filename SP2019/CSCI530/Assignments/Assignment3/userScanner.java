@@ -12,7 +12,7 @@ public class userScanner {
 
     public static ArrayList<String> splitString() {
         // String userIn = userScan();
-        String userIn = "(id + id) * id + id$";
+        String userIn = "(id + id) * id$";
         Character chIndex;
         ArrayList<String> pStr = new ArrayList<String>();
         for (int i = 0; i < userIn.length(); i++) {

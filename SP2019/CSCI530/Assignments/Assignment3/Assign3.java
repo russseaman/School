@@ -20,8 +20,6 @@ public class Assign3 {
         // will check if "go conditions are met, return string if pass, if fail, will give reason why"
         us.goCheck();
 
-
-
         // TODO: Output stack trace for debugging!
 
 
