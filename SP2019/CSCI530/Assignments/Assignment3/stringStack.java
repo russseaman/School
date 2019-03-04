@@ -29,10 +29,7 @@ public class stringStack {
                     initStack = initStack.concat(goString.remove(0).toString());
                     nextActSub = nextAct.substring(1);
                     initStack = initStack.concat(nextActSub);
-                    System.out.println(initStack);
-                    currItem = "*";
- 
-                    // System.out.println(initStack);
+                    currItem = "";
                 } else if (goString.get(0).equals("(")) {
                     initStack = initStack.concat(goString.remove(0).toString());
                     nextAct = cpr.returnList().get(currState).getAction4();
@@ -71,6 +68,18 @@ public class stringStack {
                         initStack = initStack.concat("T" + gotoVal);
                         gotoVal = "";
                         currItem = "T";
+                        if (initStack.contains("*")) {
+                            initStack = initStack.substring(0, initStack.lastIndexOf("*"));
+                            currState = initStack.indexOf(0) + 1;
+                            System.out.println(initStack);
+                            initStack = "";
+                            initStack = initStack.concat(currState + "E" + cpr.returnList().get(currState).getGotoE());
+                            System.out.println(initStack);
+                            if (initStack.contains("0E1")){
+                                System.out.println("****ACCEPT*****");
+                            }
+                            currItem = "nope";
+                        }
                     }
                     while (currItem.contains("T")) {
                         gotoVal = cpr.returnList().get(currState).getGotoE();
@@ -81,13 +90,10 @@ public class stringStack {
                             nextActSub = gotoVal;
                             gotoVal = "";
                         }
-
                         currItem = "E";
                     }
-                    // System.out.println("IM OUT ");
                 } else if (currItem.toString().equals("E")) {
                     currState = 0;
-                    // System.out.println(initStack);
                     String gotoF = cpr.returnList().get(currState).getGotoF();
                     initStack = initStack.concat("F" + gotoF);
                     System.out.println(initStack);
@@ -96,9 +102,8 @@ public class stringStack {
                     initStack = initStack.concat("T" + gotoE);
                     currState = 2;
                     specialMove = 1;
-                }else if (currItem.toString().equals("*")){
-                    initStack = initStack.substring(0,initStack.lastIndexOf("*"));
-                    // System.out.println(currState);
+                } else if (currItem.toString().equals("*")) {
+                    initStack = initStack.substring(0, initStack.lastIndexOf("*"));
                     specialMove = 1;
                 }
 

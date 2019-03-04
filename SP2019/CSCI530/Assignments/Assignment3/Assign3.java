@@ -7,12 +7,15 @@ public class Assign3 {
         // ! DONE
         csvParseReader cpr = new csvParseReader();
         cpr.csvParseRead();
+        cpr.printTable();
 
+       System.out.println("========================================================================================="); 
         // TODO: Read file from grammer rules
         // ! DONE
-        // csvGrammarReader cgr = new csvGrammarReader();
+        csvGrammarReader cgr = new csvGrammarReader();
         // cgr.csvGrammarRead();
-
+        cgr.printTable();
+       System.out.println("========================================================================================="); 
         // TODO: Scanner to read user input
         // ! DONE
         userScanner us = new userScanner();

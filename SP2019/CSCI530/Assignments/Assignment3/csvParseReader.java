@@ -51,8 +51,6 @@ public class csvParseReader {
         // System.out.println(ANSI_YELLOW_BACKGROUND + Header);
         System.out.println("Parse Table: ");
         StringBuilder spb = new StringBuilder();
-        spb.append(String.format(
-                "+------------+---------+---------+---------+--------+---------+---------+---------+---------+---------+%n"));
         String printFormat = "| %-10s | %-7s | %-7s | %-7s | %-7s| %-7s | %-7s | %-7s | %-7s | %-7s |%n";
         spb.append(String.format(printFormat, "State", "id", "+", "*", "(", ")", "$", "E", "T", "F"));
         spb.append(String.format(
