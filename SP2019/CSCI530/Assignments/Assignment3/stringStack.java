@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.lang.*;
 
 public class stringStack {
 
@@ -52,6 +53,9 @@ public class stringStack {
                     nextAct = cpr.returnList().get(currState).getAction6();
                     initStack = initStack.concat(goString.remove(0).toString());
                     currItem = "$";
+                } else {
+                    System.out.println("********ERROR*******");
+                    return;
                 }
                 currState = Integer.parseInt(nextActSub);
                 if (currItem.toString().equals("id")) {
@@ -77,13 +81,13 @@ public class stringStack {
                             System.out.println(initStack);
                             if (initStack.contains("0E1")){
                                 System.out.println("****ACCEPT*****");
-                            }
+                            } 
                             currItem = "nope";
                         }
                     }
                     while (currItem.contains("T")) {
                         gotoVal = cpr.returnList().get(currState).getGotoE();
-                        if (!gotoVal.isBlank()) {
+                        if (!gotoVal.equals("")) {
                             currState = Integer.parseInt(cpr.returnList().get(currState).getGotoE());
                             initStack = initStack.substring(0, initStack.lastIndexOf("T"));
                             initStack = initStack.concat("E" + gotoVal);
