@@ -28,7 +28,10 @@ public class stringStack {
                 } else if (goString.get(0).equals("*")) {
                     nextAct = cpr.returnList().get(currState).getAction3();
                     initStack = initStack.concat(goString.remove(0).toString());
-                    nextActSub = nextAct.substring(1);
+                    if (nextAct.length() == 0){
+                        nextActSub = nextAct.substring(1);
+                    }else{
+                    }
                     initStack = initStack.concat(nextActSub);
                     currItem = "";
                 } else if (goString.get(0).equals("(")) {
@@ -37,7 +40,6 @@ public class stringStack {
                     nextActSub = nextAct.substring(1);
                     initStack = initStack.concat(nextActSub);
                 } else if (goString.get(0).equals(")")) {
-                    System.out.println(initStack);
                     nextAct = cpr.returnList().get(currState).getAction5();
                     initStack = initStack.concat(goString.remove(0).toString());
                     System.out.println(initStack);
@@ -57,7 +59,7 @@ public class stringStack {
                     System.out.println("********ERROR*******");
                     return;
                 }
-                currState = Integer.parseInt(nextActSub);
+                //currState = Integer.parseInt(nextActSub);
                 if (currItem.toString().equals("id")) {
                     String gotoVal = cpr.returnList().get(currState).getGotoF();
                     System.out.println(initStack);
@@ -81,8 +83,10 @@ public class stringStack {
                             System.out.println(initStack);
                             if (initStack.contains("0E1")){
                                 System.out.println("****ACCEPT*****");
-                            } 
+                            }
                             currItem = "nope";
+                        }else{
+                            //System.out.println("*****ERROR*******");
                         }
                     }
                     while (currItem.contains("T")) {
@@ -109,6 +113,8 @@ public class stringStack {
                 } else if (currItem.toString().equals("*")) {
                     initStack = initStack.substring(0, initStack.lastIndexOf("*"));
                     specialMove = 1;
+                }else{
+                    System.out.println("*****ERROR*******");
                 }
 
             }
